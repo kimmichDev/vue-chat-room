@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+@import "../../node_modules/animate.css/animate.min.css";
+
+// bootstrap custom
+$font-family-sans-serif : 'Montserrat', sans-serif;
+$light : #fef9ef;
+$primary : #227c9d;
+$secondary : #6d6875;
+$success : #17c3b2;
+$warning : #ffcb77;
+$danger : #fe6d73;
+$border-radius : 1.3rem;
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// custom css
+.fake-link{
+    cursor: pointer;
+}

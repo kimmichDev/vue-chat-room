@@ -1,0 +1,6 @@
+fef9ef /light 
+ffcb77 warning
+success 17c3b2
+primary 227c9d
+fe6d73 danger
+6d6875 secondary
