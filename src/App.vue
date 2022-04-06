@@ -1,11 +1,15 @@
 <template>
-  <HomeView></HomeView>
+  <router-view></router-view>
 </template>
 
 <script>
+import ChatRoom from "./views/ChatRoom";
 import HomeView from "./views/HomeView";
 export default {
-  components: { HomeView },
+  components: {
+    ChatRoom,
+    HomeView,
+  },
   setup() {
     return {};
   },

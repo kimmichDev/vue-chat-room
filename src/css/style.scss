@@ -16,3 +16,13 @@ $border-radius : 1.3rem;
 .fake-link{
     cursor: pointer;
 }
+.chat-bg{
+    background: url("../assets/background.png");
+    background-size: cover;
+    background-position: center; 
+}
+.blur{
+    background: rgba(255, 255, 255, 0.048);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(7.5px);
+}
