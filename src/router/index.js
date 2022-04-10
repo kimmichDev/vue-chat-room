@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import ChatRoom from "../views/ChatRoom.vue";
+import getUser from "../composables/getUser";
 
 const routes = [
   {
@@ -11,7 +12,15 @@ const routes = [
   {
     path: "/chatRoom",
     name: "chat-room",
-    component: ChatRoom
+    component: ChatRoom,
+    beforeEnter: (to, from, next) => {
+      let { user } = getUser();
+      if (user.value) {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    }
   }
 ]
 

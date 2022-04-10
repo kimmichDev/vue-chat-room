@@ -1,35 +1,33 @@
 <template>
-  <div class="min-vh-100 chat-bg">
-    <div class="container">
-      <div class="row justify-content-center" v-if="user">
-        <div class="col-12 col-md-8 mt-2">
-          <div class="card blur shadow border-0">
-            <div class="card-body">
-              <div class="d-flex align-items-center justify-content-between">
-                <div>
-                  <h5 class="mb-0">Welcome {{ user.displayName }}</h5>
-                  <small class="small text-black-50">Logged in as {{ user.email }}</small>
-                </div>
-                <div>
-                  <button class="btn btn-warning" @click="logout()">Logout</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="animate__animated animate__fadeIn min-vh-100 chat-bg">
+    <div class="bg-blur">
+      <Nav></Nav>
+      <ChatMessage></ChatMessage>
+      <ChatForm></ChatForm>
     </div>
   </div>
 </template>
 
 <script>
-import getUser from "../composables/getUser";
-import useLogOut from "../composables/useLogout";
+import ChatMessage from "../components/ChatMessage";
+import ChatForm from "../components/ChatForm";
+import { watch } from "@vue/runtime-core";
+import Nav from "../components/Nav";
+import getUser from "@/composables/getUser";
+import { useRouter } from "vue-router";
+
 export default {
+  components: {
+    ChatMessage,
+    ChatForm,
+    Nav,
+  },
   setup() {
+    let router = useRouter();
     let { user } = getUser();
-    let { logout } = useLogOut();
-    return { user, logout };
+    watch(user, () => {
+      router.push({ name: "home" });
+    });
   },
 };
 </script>
